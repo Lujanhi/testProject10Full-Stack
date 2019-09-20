@@ -1,71 +1,66 @@
 import React, { Component } from 'react';
-import './App.css';
+import './global.css';
 
+//import necessary Components from react-router-dom module
+//https://reacttraining.com/react-router/web/example/url-params
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+//import our Components to be displayed in this App Component
+import Header from './components/Header';
+
+//import components for Routes
+import Courses from './components/Courses';
+import CourseDetail from './components/CourseDetail';
+import CreateCourse from './components/CreateCourse';
+import UpdateCourse from './components/UpdateCourse';
+import UserSignIn from './components/UserSignIn';
+import UserSignUp from './components/UserSignUp';
+import UserSignOut from './components/UserSignOut';
+
+import NotFound from './components/NotFound';
+import Forbidden from './components/Forbidden';
+
+//privateRoute already contains context, so no need to withContext()
+//'polices' the routes it's associated wtih: you must be logged in to access these
+import PrivateRoute from './PrivateRoute';
+
+//get the withContext method from the Context JS
+import withContext from './components/Context';
+
+//define components which contain the Context proivded by withContext()
+const HeaderWithContext = withContext(Header);
+const CourseDetailWithContext = withContext(CourseDetail);
+const CreateCourseWithContext = withContext(CreateCourse);
+const UpdateCourseWithContext = withContext(UpdateCourse);
+const UserSignUpWithContext = withContext(UserSignUp);
+const UserSignInWithContext = withContext(UserSignIn);
+const UserSignOutWithContext = withContext(UserSignOut);
+
+//use withContext components in routes and the render as required
+//use the non-context for those which do not need Context (good practice)
 class App extends Component {
-  constructor() {
-    //execute default constructor
-    super();
-
-    //default state: courses empty array, isLoading boolean true
-    this.state = {
-      courses: [],
-      isLoading: true
-    };
-  }
-
-  fetchCourses = () => {
-    //when loading the page, empty the state variables
-    //so the render will show default state while the images load
-    this.setState({ courses: [], isLoading: true });
-
-    //construct uri for REST API from Project 9
-    const uri = "http://localhost:5000/api/courses";
-
-    //HTTP GET the URI, convert the response data to JSON, assign the courses state variable and set state isLoading to false, signifying the courses are loaded
-    fetch(uri)
-      .then(response => response.json())
-      .then(responseData => {
-        this.setState({ courses: responseData, isLoading: false });
-      })
-      .catch(error => {
-        console.log('Error fetching and parsing data', error);
-      });
-  }
-
-  mapJsonToLIs = (course, i) => {
-    return <li>{course.title}</li>;
-  }
-
-  componentDidMount() {
-    this.fetchCourses();
-  }
-
   render() {
-    let courseList = [];
-    let content = '';
-
-    //if the photos aren't loading, display the name
-    if (!this.state.isLoading) {
-      content = "Displaying courses";
-    }
-    //if the courses array has content display them
-    if (this.state.courses.length > 0) {
-      courseList = this.state.courses.map(this.mapJsonToLIs);
-    }
-
-    //if there are no courseList in the array, and the isLoading is false, then this must be an empty search: load NotFound component
-    else if (!this.state.isLoading) {
-      courseList = <li>Loading...</li>;
-    }
-    //otherwise, display the generic Loading panel
-    else {
-      courseList = <li>Loading...</li>;
-    }
-
-    //render the course-container with the content and courseList variables within
-    return <div className="course-container"><h2>{content}</h2><ul>{courseList}</ul></div>;
+    return (
+      <Router>
+        <div>
+          <HeaderWithContext />
+          <Switch>
+            <Route exact path="/" component={Courses} />
+            <Route exact path="/signin" component={UserSignInWithContext} />} />
+          <Route exact path="/signup" component={UserSignUpWithContext} />
+            <Route exact path="/signout" component={UserSignOutWithContext} />
+            <Route exact path="/courses" component={Courses} />
+            <Route exact path="/notfound" component={NotFound} />
+            <Route exact path="/forbidden" component={Forbidden} />
+            <PrivateRoute exact path="/courses/create" component={CreateCourseWithContext} />
+            <PrivateRoute path="/courses/:id/update" component={UpdateCourseWithContext} />
+            <Route path="/courses/:id" component={CourseDetailWithContext} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+      </Router>
+    );
   }
-
 }
 
 export default App;

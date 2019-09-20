@@ -11,6 +11,13 @@ const bcrypt = require('bcryptjs');
 const User = require('../models').User;
 const Course = require('../models').Course;
 
+////////////import the cors module/////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////  NEW
+const cors = require('cors');
+app.use(cors());
+
+
+
 //User authentication middleware
 const authenticateUser = async (req, res, next) => {
     let message;
