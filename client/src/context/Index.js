@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Cookies from 'js-cookie';
 
 //Import Data from the Data.js
-import Data from '../../Data';
+import Data from '../Data';
 
 //establish Context in react application = store application global state for entire App to access
 //will include authentcation tokens (user object and password; retrieved and stored in cookies
