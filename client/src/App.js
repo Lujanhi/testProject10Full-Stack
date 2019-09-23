@@ -1,30 +1,34 @@
 import React, { Component } from 'react';
 import './global.css';
 
+import React, { Component } from 'react';
+import './global.css';
+
 //import necessary Components from react-router-dom module
 //https://reacttraining.com/react-router/web/example/url-params
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //import our Components to be displayed in this App Component
-import Header from '/components/Header';
+import Header from './components/Header';
 
 //import components for Routes
-import Courses from '/components/Courses';
-import CourseDetail from '/components/CourseDetail';
-import CreateCourse from '/components/CreateCourse';
-import UpdateCourse from '/components/UpdateCourse';
-import UserSignIn from '/components/UserSignIn';
-import UserSignUp from '/components/UserSignUp';
-import UserSignOut from '/components/UserSignOut';
+import Courses from './components/Courses';
+import CourseDetail from './components/CourseDetail';
+import CreateCourse from './components/CreateCourse';
+import UpdateCourse from './components/UpdateCourse';
+import UserSignIn from './components/UserSignIn';
+import UserSignUp from './components/UserSignUp';
+import UserSignOut from './components/UserSignOut';
 
-import NotFound from '/components/NotFound';
-import Forbidden from '/components/Forbidden';
+import NotFound from './components/NotFound';
+import Forbidden from './components/Forbidden';
+
 //privateRoute already contains context, so no need to withContext()
 //'polices' the routes it's associated wtih: you must be logged in to access these
 import PrivateRoute from './PrivateRoute';
 
 //get the withContext method from the Context JS
-import withContext from '/components/Context';
+import withContext from './components/Context';
 
 //define components which contain the Context proivded by withContext()
 const HeaderWithContext = withContext(Header);

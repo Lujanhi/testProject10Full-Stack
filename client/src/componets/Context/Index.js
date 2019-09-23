@@ -1,7 +1,7 @@
-import React, { Component } from './node_modules/react';
+import React, { Component } from 'react';
 
 //Import Cookies component from the js-cookie package
-import Cookies from './node_modules/js-cookie';
+import Cookies from 'js-cookie';
 
 //Import Data from the Data.js
 import Data from '../../Data';
