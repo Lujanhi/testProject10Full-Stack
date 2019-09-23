@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from './node_modules/react';
 
 //Import Cookies component from the js-cookie package
-import Cookies from 'js-cookie';
+import Cookies from './node_modules/js-cookie';
 
 //Import Data from the Data.js
-import Data from '../Data';
+import Data from '../../Data';
 
 //establish Context in react application = store application global state for entire App to access
 //will include authentcation tokens (user object and password; retrieved and stored in cookies
