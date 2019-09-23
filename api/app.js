@@ -2,6 +2,9 @@
 const express = require('express');
 
 const app = express();
+//import the cors module
+const cors = require('cors');
+app.use(cors());
 
 const Sequelize = require('sequelize');
 
@@ -266,9 +269,9 @@ res.json({
 
 // send 404 if no other route matched
 app.use((req, res, next) => {
-res.status(404).json({
-  message: 'Route Not Found',
-});
+  res.status(404).json({
+    message: 'Route Not Found',
+  });
 });
 
 // setup a global error handler

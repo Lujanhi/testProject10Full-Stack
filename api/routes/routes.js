@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+
+
+
 const Sequelize = require('sequelize');
 const enableGlobalErrorLogging = false;
 const { check, validationResult } = require('express-validator');
@@ -10,13 +13,6 @@ const bcrypt = require('bcryptjs');
 
 const User = require('../models').User;
 const Course = require('../models').Course;
-
-////////////import the cors module/////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////  NEW
-const cors = require('cors');
-app.use(cors());
-
-
 
 //User authentication middleware
 const authenticateUser = async (req, res, next) => {
@@ -75,7 +71,7 @@ const authenticateUser = async (req, res, next) => {
 // GET request to /api/users 
 //Returns HTTP: Status Code 200 means 
 router.get('/users', authenticateUser, async (req, res) => {
-    const userData = await User.findByPk(req.body.id,)
+    const userData = await User.findByPk(req.body.id)
     res.json(userData);
 });
 
@@ -135,8 +131,8 @@ router.get('/courses', (req, res) => {
 
     const Course = require('../models').Course;
     const User = require('../models').User;
-    
-    
+
+
     //get list of courses
     Course.findAll({
         order: [
@@ -203,7 +199,7 @@ router.post('/courses', authenticateUser, async (req, res, next) => {
             res.json(errors);
         }
         else {
-            
+
 
             const newCourse = await Course.create(course)
             res.location(`/api/courses/${newCourse.id}`)
