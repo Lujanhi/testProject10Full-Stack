@@ -5,7 +5,7 @@ import React from 'react';
 const UnhandledError = () => {
     return (
         <div className="item-not-found">
-            Ayudame! You just found a 404!
+            404 Error !
         </div>
     )
 }
