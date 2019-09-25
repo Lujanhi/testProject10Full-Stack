@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './global.css';
 
-import React, { Component } from 'react';
-import './global.css';
-
 //import necessary Components from react-router-dom module
 //https://reacttraining.com/react-router/web/example/url-params
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
