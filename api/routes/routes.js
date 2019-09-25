@@ -1,18 +1,27 @@
 const express = require('express');
 const router = express.Router();
-
-
-
 const Sequelize = require('sequelize');
 const enableGlobalErrorLogging = false;
 const { check, validationResult } = require('express-validator');
 const auth = require('basic-auth');
+const cors = require('cors');
+
+/* router.use(morgan)("dev");
+router.use(cors())  */
+
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 const bcrypt = require('bcryptjs');
 
 const User = require('../models').User;
 const Course = require('../models').Course;
+
+
+
+
+
+
+
 
 //User authentication middleware
 const authenticateUser = async (req, res, next) => {

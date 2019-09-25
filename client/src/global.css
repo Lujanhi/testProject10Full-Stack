@@ -1,3 +1,4 @@
+/* line 7, ../sass/reset.sass */
 a,
 abbr,
 acronym,
@@ -130,6 +131,36 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
+
+a.signup {
+ color:red
+}
+
+
+
+
+
+a.course--module.course--link {
+  background-color: black 
+}
+
+
+div.header{
+  background: blue
+  
+}
+
+p{
+  color: #222
+}
+
+
+
+
+
+
+
+
 /* line 140, ../sass/reset.sass */
 ul,
 ol {
@@ -139,6 +170,7 @@ ol {
 /* line 144, ../sass/reset.sass */
 li {
   display: list-item;
+  color: red;
 }
 
 /* line 151, ../sass/reset.sass */
@@ -201,7 +233,7 @@ svg {
 /* line 5, ../sass/global.sass */
 body {
   font-family: "Work Sans", sans-serif;
-  background: #fff;
+  background: rgb(8, 129, 14);
 }
 
 /* line 13, ../sass/global.sass */
@@ -281,7 +313,7 @@ h1 {
 
 /* line 61, ../sass/global.sass */
 a {
-  color: #e22208;
+  color: #7c689b;
   cursor: pointer;
   text-decoration: none;
   -webkit-transition: color 0.2s;
@@ -433,7 +465,7 @@ p {
 .course--header .course--title {
   font-size: 48px;
   margin-bottom: 15px;
-  color: #332a40;
+  color:white;
 }
 /* line 171, ../sass/global.sass */
 .course--header p {
@@ -459,7 +491,7 @@ p {
 .course--description p {
   font-size: 16px;
   line-height: 1.8;
-  color: #444;
+  color:white;
 }
 /* line 195, ../sass/global.sass */
 .course--description ol,
@@ -541,7 +573,7 @@ p {
 .course--stats--list h4 {
   font-family: "Cousine";
   font-weight: 100;
-  color: #999;
+  color:white;
   font-size: 14px;
   padding: 0 0 10px;
   margin-bottom: 10px;
@@ -556,6 +588,7 @@ p {
 .course--stats--list h3 {
   font-family: "Work Sans", sans-serif;
   font-size: 18px;
+  color:white;
 }
 /* line 303, ../sass/global.sass */
 .course--stats--list > li {
@@ -564,11 +597,13 @@ p {
 /* line 305, ../sass/global.sass */
 .course--stats--list > li ul {
   padding-left: 20px;
+
 }
 /* line 307, ../sass/global.sass */
 .course--stats--list > li li {
   margin-bottom: 15px;
   list-style-type: circle;
+  color: white;
 }
 /* line 311, ../sass/global.sass */
 .course--time--input {
@@ -738,7 +773,7 @@ input:focus {
 
 /* styles the validation errors */
 .validation--errors--label {
-  color: #7c689b;
+  color: red;
   font-size: 28px;
 }
 .validation-errors ul {

@@ -1,18 +1,14 @@
 // create the Express app
 const express = require('express');
-
 const app = express();
-//import the cors module
 const cors = require('cors');
 app.use(cors());
-
 const Sequelize = require('sequelize');
-
 const enableGlobalErrorLogging = false;
-
 const { check, validationResult } = require('express-validator');
-
 const route = require('./routes/routes');
+
+
 
 app.use('/api', route)
 //Body-parser
