@@ -1,6 +1,5 @@
- import React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-
 import './global.css';
 
 //Provider is importing the component Provider from the context.js file
