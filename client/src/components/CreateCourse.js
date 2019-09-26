@@ -103,7 +103,7 @@ export default class CreateCourse extends Component {
         
         const course = {
             title,
-            description,   // // Create course
+            description,   // Create course
             estimatedTime,
             materialsNeeded,
         };

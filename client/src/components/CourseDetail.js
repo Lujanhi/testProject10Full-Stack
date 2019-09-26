@@ -144,6 +144,5 @@ class CourseDetail extends Component {
       });
 
   }
-
 }
 export default CourseDetail;
