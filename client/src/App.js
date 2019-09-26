@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import './global.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import Header from './components/Header';
 import Courses from './components/Courses';
 import CourseDetail from './components/CourseDetail';
@@ -11,10 +10,8 @@ import UpdateCourse from './components/UpdateCourse';
 import UserSignIn from './components/UserSignIn';
 import UserSignUp from './components/UserSignUp';
 import UserSignOut from './components/UserSignOut';
-
 import NotFound from './components/NotFound';
 import Forbidden from './components/Forbidden';
-
 import PrivateRoute from './PrivateRoute';
 import withContext from './components/Context';
 

@@ -1,7 +1,5 @@
 
 import React from 'react';
-
-//UnhandledError component - exception reached (500)
 const UnhandledError = () => {
     return (
         <div className="item-not-found">
@@ -11,3 +9,4 @@ const UnhandledError = () => {
 }
 
 export default UnhandledError;
+//UnhandledError component - exception reached (500)

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-//withRouter gives the Header access to the 'this.props.location' attribute, allowing pathname
-//to be set to a variable and passed to the SignIn and SignUp Link clicks (UserSignIn and UserSignUp components)
+//withRouter gives the Header access to the 'this.props.location' attribute.
 import { withRouter } from 'react-router';
 
 class Header extends React.PureComponent {
@@ -17,7 +16,7 @@ class Header extends React.PureComponent {
                 <div className="bounds">
                     <h1 className="header--logo">Courses</h1>
                     <nav>
-                        {/* inline conditional: if authUser is not null, user is logged in. If not, offer sign up and sign in links */}
+                        
                         {authUser ? (
                             <React.Fragment>
                                 <span>Welcome, {authUser.firstName + " " + authUser.lastName}!</span>

@@ -47,18 +47,14 @@ export class Provider extends Component {
                 };
             });
 
-            //once authenticated, set the cookie with these credentials
-            //exipre the cookie in 1 day
+            
             const cookieOptions = {
-                expires: 1 // 1 day
+                expires: 1 
             };
 
             Cookies.set('authenticatedUser', JSON.stringify(user), cookieOptions);
             Cookies.set('authenticatedUserPwd', password, cookieOptions);
-            //same as
-            //Cookies.set('authenticatedUser', JSON.stringify(user), {expires: 1});
-            //this doesn't work - though included in a previous example
-            //Cookies.set('authenticatedUser', JSON.stringify(user), {{expires: 1}});
+            
         }
         return user;
     }
@@ -71,7 +67,7 @@ export class Provider extends Component {
     }
 }
 
-//the export for this Component is the 'Consumer' object
+
 export const Consumer = Context.Consumer;
 
 /**

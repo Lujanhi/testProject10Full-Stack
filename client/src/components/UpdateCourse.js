@@ -18,8 +18,6 @@ export default class UpdateCourse extends Component {
     }
 
     fetchCourseById = (courseId) => {
-        //when loading the page, empty the state variables
-        //so the render will show default state while the courses load
         this.setState({ title: '', description: '', materialsNeeded: '', estimatedTime: '', isLoading: true, id: null, courseUserId: null, courseWasFound: false });
 
         const { context } = this.props;
@@ -45,9 +43,7 @@ export default class UpdateCourse extends Component {
     render() {
         const { context } = this.props;
         const authUser = context.authenticatedUser;
-        //if state.id was not null, and courseWasFound is false, redirect to /notfound
-        //if state.id was not null, and courseWasFound is true, and the auth user's ID
-        //is not the same as the state.courseUserId, redirect the user to /forbidden
+        
         if (this.state.id) {
             if (!this.state.courseWasFound) {
                 return <Redirect to='/notfound' />

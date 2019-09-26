@@ -1,6 +1,5 @@
-import React from 'react';
+import React from 'react'; ////NotFound component - route accessed does not exist (404)
 
-//NotFound component - route accessed does not exist (404)
 const NotFound = () => {
     return (
         <div>
