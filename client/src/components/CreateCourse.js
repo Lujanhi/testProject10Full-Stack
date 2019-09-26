@@ -100,7 +100,7 @@ export default class CreateCourse extends Component {
         const estimatedTime = this.state.estimatedTime;
         const materialsNeeded = this.state.materialsNeeded;
 
-        
+
         const course = {
             title,
             description,   // Create course
@@ -110,14 +110,15 @@ export default class CreateCourse extends Component {
 
         context.data.createCourse(course, context.authenticatedUser, context.authenticatedUserPwd)
             .then(courseCreateResult => {
-                if (!courseCreateResult.length) {
-                   
-                    this.props.history.push('/');
+                if (title === '' || description === '') {
+                    this.setState({
+                        errors: ["missing info "]
+                    });
+                    return;
+                    //this.props.history.push('/');
 
                 } else {
-                    this.setState(() => {
-                        return { errors: [courseCreateResult] };
-                    });
+                    this.props.history.push('/');
                 }
             })
             .catch((err) => {
